@@ -1,0 +1,127 @@
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2') format('woff2');
+  }
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+}
+
+input::-webkit-calendar-picker-indicator {
+    display: none;
+  }
+input {
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.not-to-considered {
+color: #F2DFD5 
+#FFF0E8 
+#28293E
+#FF6F5A
+#171a56
+}
+
+.div-login {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 20vh;
+}
+
+
+.dropdown-trigger {
+    padding: 0px 55px;
+}
+
+.dropdown-content {
+    background-color: #fff0e8;
+}
+
+.dropdown-content li>a {
+    color:#28293E;
+}
+
+
+.form-login {
+    padding:20px; 
+    border-radius:4px;
+    background:#EE6E73;
+    box-shadow: 4px 4px 10px 1px #c19799;
+
+}
+
+.btn, .btn-large, .btn-small {
+    background: #F2DFD5;
+}
+
+.btn:hover {
+    background-color: #ee6e73;
+}
+
+body {
+    background:#FFF0E8 ;
+}
+
+/* input[type=text]:focus, input[type=password]:focus {
+    border-bottom: 1px solid #FFF0E8 !important;
+    -webkit-box-shadow: 0 1px 0 0 #FFF0E8 !important;
+    box-shadow: 0 1px 0 0 #FFF0E8 !important;
+} */
+
+.form-format {
+    border: 20px;
+}
+
+/* .active {
+    color: #FFF0E8 !important;
+} */
+
+.nav-wrapper {
+    box-shadow: 2px 2px 10px 3px #a07173;
+    background-color: #171a56;
+}
+
+.tabs {
+    background: #fff0e8;
+    margin-top: 16px;
+}
+
+[type="radio"]:checked+span:after {
+    background-color: #ee6e73;
+    border: 2px solid #ee6e73;
+}
+
+.btn {
+    background: #6b535166;
+}
+
+.waves-input-button {
+    color: #28293E;
+    font-weight:630 !important;
+}
+
+.verti-scroll {
+    height: 260px;
+    width: 100%;
+    overflow-y: scroll;
+}
+
+.student-search {
+    border: 10px solid rgba(228, 136, 231, 0.548);
+    height: 150px;
+}
+
+.success {
+    background: #18f574;
+}
+
+#dropdown1, #dropdown2, #dropdown3, #dropdown4 {
+    top: -64px;
+}

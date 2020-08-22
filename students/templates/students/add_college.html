@@ -1,0 +1,19 @@
+{% extends 'students/college_master.html' %}
+
+{% block page %}
+
+<span class="row addition">
+    <form action="/collegemaster/add-college/" method="post">
+        {% csrf_token %}
+        <div class="row">
+            <div class="input-field col s6">
+                <input type="text" name="college_name" required id="college_name">
+                <label for="college_name">College Name</label>
+            </div>
+        </div>
+        <input class="waves-effect waves-light btn" style="width: 50%;" type="submit" value="Submit">
+
+    </form>
+</span>
+
+{% endblock page %}

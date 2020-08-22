@@ -1,0 +1,37 @@
+{% extends 'students/year_master.html' %}
+
+{% block search %}
+<form method="POST" action="/yearmaster/search-year/" >
+  {% csrf_token %}
+  <div class="row">
+  <div class="input-field col s4">
+  <input type="text" name="current_year" required id="current_year">
+  <label for="current_year">Current Year</label>
+  </div>
+<div  style="margin-top: 10px;" class="col s4">
+<input  class="waves-effect waves-light btn"  type="submit" value="Submit">
+</div>
+</div>
+</form>
+{% endblock search %}
+
+{% block page %}
+
+<div class="verti-scroll">
+    <table class="centered" >
+        <thead>
+          <tr>
+              <th>Current Year</th>
+          </tr>
+        </thead>
+        
+        {% for c in current %}
+        <tbody class="centered">
+          <tr>
+            <td>{{c.current_year}}</td>
+          </tr>
+        </tbody>
+        {% endfor %}
+      </table>
+    </div>
+{% endblock %}

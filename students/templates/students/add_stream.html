@@ -1,0 +1,19 @@
+{% extends 'students/stream_master.html' %}
+
+{% block page %}
+
+<span class="row addition">
+    <form action="/streammaster/add-stream/" method="post">
+        {% csrf_token %}
+        <div class="row">
+            <div class="input-field col s6">
+                <input type="text" name="stream_name" required id="stream_name">
+                <label for="stream_name">Stream Year</label>
+            </div>
+        </div>
+        <input class="waves-effect waves-light btn" style="width: 50%;" type="submit" value="Submit">
+
+    </form>
+</span>
+
+{% endblock page %}

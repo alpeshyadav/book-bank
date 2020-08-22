@@ -1,0 +1,74 @@
+{% extends 'students/student_basic.html' %}
+
+{% block style %}
+  .row {
+    margin-bottom: -20px;
+  }
+
+  .input-field {
+    margin-top:0px;
+  }
+{% endblock style %}
+
+{% block search %}
+<form method="POST" action="/student/search-student/" >
+  {% csrf_token %}
+  <div class="row">
+  <div class="input-field col s4">
+  <input type="text" name="student_id" autofocus id="student_id">
+  <label for="student_id">Student Id</label>
+  </div>
+  <div class="input-field col s4">
+  <input type="text" name="student_name" id="student_name">
+  <label for="student_name">Student Name</label>
+</div>
+<div  style="margin-top: 10px;" class="col s4">
+<input  class="waves-effect waves-light btn"  type="submit" value="Submit">
+</div>
+</div>
+</form>
+{% endblock search %}
+
+
+{% block page %}
+
+<div class="verti-scroll">
+    <table class="centered" >
+        <thead>
+          <tr>
+              <th>Student Id</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Gender</th>
+              <th>Address</th>
+              <th>Contact No</th>
+              <th>Parent's Contact No</th>
+              <th>College Name</th>
+              <th>Branch Name</th>
+              <th>Stream Name</th>
+              <th>Current Year</th>
+          </tr>
+        </thead>
+        
+        {% for s in students %}
+        <tbody class="centered">
+          <tr>
+            <td>{{s.student_id}}</td>
+            <td>{{s.first_name}}</td>
+            <td>{{s.last_name}}</td>
+            <td>{{s.gender}}</td>
+            <td>{{s.address}}</td>
+            <td>{{s.contact_no}}</td>
+            <td>{{s.parent_contact}}</td>
+            <td>{{s.college_name}}</td>
+            <td>{{s.branch_name}}</td>
+            <td>{{s.stream_name}}</td>
+            <td>{{s.current_year}}</td>
+          </tr>
+        </tbody>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+
+{% endblock %}

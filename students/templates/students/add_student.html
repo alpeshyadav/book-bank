@@ -1,0 +1,121 @@
+{% extends 'students/student_basic.html' %}
+
+{% block style %}
+  .row {
+    margin-bottom: -20px;
+  }
+
+  .input-field {
+    margin-top:0px;
+  }
+{% endblock style %}
+
+{% block page %}
+<span class="row">
+  <form method="POST" action="/student/add-student/" class="col s12">
+    {% csrf_token %}
+    <div class="row">
+      <div class="input-field col s6">
+        <input id="first_name" type="text" name="first_name" required>
+        <label for="first_name">First Name</label>
+      </div>
+      <div class="input-field col s6">
+        <input id="last_name" type="text" name="last_name" required>
+        <label for="last_name">Last Name</label>
+      </div>
+    </div>
+    <span class="row">
+      <span class="input-field col s2">
+        <span class="col s6">
+          <label>
+            <input name="gender" value="male" type="radio" />
+            <span>Male</span>
+          </label>
+          <label>
+            <input name="gender" value="female" type="radio" />
+            <span>Female</span>
+          </label>
+        </span>
+      </span>
+      <div class="input-field col s10">
+        <input id="address" type="text" name="address" required>
+        <label for="address">Address</label>
+      </div>
+    </span>
+    <div class="row">
+      <div class="input-field col s6">
+        <input id="contact_no" name="contact_no" type="text" pattern="[0-9]{10}" required>
+        <label for="contact_no">Contact No</label>
+      </div>
+      <div class="input-field col s6">
+        <input id="parent_contact" name="parent_contact" type="text" pattern="[0-9]{10}" data-length="10" required>
+        <label for="parent_contact">Parent's Contact No</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s6">
+      <div class="input-field col s10">
+        <input type="text" name="college_name" id="college_name" required list="college_list">
+        <datalist id="college_list">
+          {% for c in college %}
+          <option value="{{c.college_name}}">
+          {% endfor %}
+        </datalist>
+        <label for="college_name">College Name</label>
+      </div>
+      <div class="input-field col s2" style="padding-top: 10px; font-size:14px">
+        <a href="/collegemaster/add-college/">Add College</a>
+      </div>
+      </div>
+      <div class="input-field col s6">
+      <div class="input-field col s10">
+        <input type="text" name="branch_name" id="branch_name" required list="branch_list">
+        <datalist id="branch_list" >
+          {% for b in branch %}
+          <option value="{{b.branch_name}}">
+          {% endfor %}
+        </datalist>
+        <label for="branch_name" >Branch Name</label>
+      </div>
+      <div class="input-field col s2" style="padding-top: 10px; font-size:14px">
+        <a href="/branchmaster/add-branch/">Add Branch</a>
+      </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s6">
+      <div class="input-field col s10">
+        <input type="text" name="stream_name" id="stream_name" required list="stream_list">
+          <datalist id="stream_list">
+          {% for s in stream %}
+          <option value={{s.stream_name}}>
+          {% endfor %}
+      </datalist>
+        <label for="stream_name" >Stream Name</label>
+      </div>
+      <div class="input-field col s2" style="padding-top: 10px; font-size:14px">
+        <a href="/streammaster/add-stream">Add Stream</a>
+      </div>
+      </div>
+
+      <div class="input-field col s6">
+      <div class="input-field col s10">
+        <input type="text" name="current_year" id="current_year" required list="current_year_list">
+          <datalist id="current_year_list">
+          {% for c in current %}
+          <option value="{{c.current_year}}">
+          {% endfor %}
+        </datalist>
+        <label for="current_year">Current Year</label>
+      </div>
+      <div class="input-field col s2" style="padding-top: 10px; font-size:14px">
+        <a href="/yearmaster/add-year/">Add Year</a>
+      </div>
+      </div>
+    </div>
+    <input  class="waves-effect waves-light btn" style="width: 100%;" type="submit" value="Submit">
+  </form>
+</span> 
+       
+{% endblock %}

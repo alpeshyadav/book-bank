@@ -1,0 +1,22 @@
+{% extends 'students/basic.html' %}
+
+{% block body %}
+{% block navbar %}
+{% endblock navbar %}
+
+
+{% block search %}{% endblock %}
+{% block page %}{% endblock %}
+
+{% endblock %}
+
+
+  {% block js_block %}
+  <script>
+   {% if messages %}
+            {% for message in messages %}
+            M.toast({html: '{{ message }}', classes: '{% if message.tags %} {{message.tags}} {% endif %}', displayLength: 10000})
+            {% endfor %}
+        {% endif %}
+  </script>
+  {% endblock %}

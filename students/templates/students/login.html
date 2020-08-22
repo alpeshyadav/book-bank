@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'students/css/materialize.min.css' %}">
+    <link rel="stylesheet" href="{% static 'students/css/styles.css' %}">
+    <style>
+        input[type=text], input[type=password] {
+            color: #fff;
+        }
+        input[type=text]:focus, input[type=password]:focus {
+            border-bottom: 1px solid #FFF0E8 !important;
+            -webkit-box-shadow: 0 1px 0 0 #FFF0E8 !important;
+            box-shadow: 0 1px 0 0 #FFF0E8 !important;
+        } 
+        .active {
+            color: #FFF0E8 !important;
+        }
+        h3{
+            color: #fff0e8;
+        }
+        .input-field>label {
+            color: #fff0e8;
+        }
+        .waves-effect input[type="submit"] {
+            color:#fff0e8;
+        }
+    </style>
+</head>
+<body>
+    <div class="center-align center-all div-login">
+    <div class="col s12">
+        <form action="{% url 'students:home' %}" method="POST" class="card-panel lighten-2 form-login">
+            <h3>LOGIN</h3>
+            {% csrf_token %}
+                <div class="row">
+                    <div class="input-field col s12">
+                      <input id="user_name" type="text" required name="user_name">
+                      <label for="user_name">User Name</label>
+                    </div>
+                </div>
+                <div class="row" style="border-bottom: black;">
+                    <div class="input-field col s12">
+                      <input id="password" type="password" required name="password">
+                      <label for="password">Password</label>
+                    </div>
+                </div>
+            <input class="waves-effect waves-light btn" type="submit" value="Log In">
+        </form>
+    </div>
+    </div>
+</body>
+
+{% load static %}
+<script src="{% static 'students/js/materialize.min.js' %}"></script>
+</html>

@@ -1,0 +1,19 @@
+{% extends 'students/publisher_master.html' %}
+
+{% block page %}
+
+<span class="row addition">
+    <form action="/publisher/add-publisher/" method="post">
+        {% csrf_token %}
+        <div class="row">
+            <div class="input-field col s6">
+                <input type="text" name="publisher" required id="publisher">
+                <label for="publisher">Publisher</label>
+            </div>
+        </div>
+        <input class="waves-effect waves-light btn" style="width: 50%;" type="submit" value="Submit">
+
+    </form>
+</span>
+
+{% endblock page %}

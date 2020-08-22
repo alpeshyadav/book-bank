@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %}Home{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'students/css/materialize.min.css' %}">
+    <link rel="stylesheet" href="{% static 'students/css/styles.css' %}">
+	
+	{% load static %}
+	<script src="{% static 'students/js/materialize.min.js' %}"></script>
+	<script src="{% static 'students/js/JsBarcode.all.min.js' %}"></script>
+	<style>
+		{% block style %}
+		{% endblock style %}
+	</style>
+</head>
+<body>
+	<div class="main-body">
+	<!-- Dropdown Structure -->
+	<ul id="dropdown1" class="dropdown-content">
+		<li><a href="{% url 'students:student' %}">Student Master</a></li>
+		<li class="divider"></li>
+		<li><a href="{% url 'students:book_master' %}">Book Master</a></li>
+		<li class="divider"></li>
+		<li><a href="{% url 'students:author_master' %}">Author Master</a></li>
+		<li class="divider"></li>
+		<li><a href="{% url 'students:college_master' %}">College Master</a></li>
+		<li class="divider"></li>
+		<li><a href="{% url 'students:branch_master' %}">Branch Master</a></li>
+		<li class="divider"></li>
+		<li><a href="{% url 'students:year_master' %}">Year Master</a></li>
+		<li class="divider"></li>
+		<li><a href="{% url 'students:publisher_master' %}">Publisher Master</a></li>
+		<li class="divider"></li>
+		<li><a href="{% url 'students:stream_master' %}">Stream Master</a></li>
+		<li class="divider"></li>
+	</ul>
+
+	<ul id="dropdown2" class="dropdown-content">
+		<li><a href="{% url 'students:issue_book' %}">Issue Books</a></li>
+		<li class="divider"></li>
+		<li><a href="return_book.html">Return Books</a></li>
+		<li class="divider"></li>
+		<li><a href="stock.html">Stock Details</a></li>
+		<li class="divider"></li>
+		<li><a href="scrap.html">Scrap Books</a></li>
+	</ul>
+
+	<ul id="dropdown3" class="dropdown-content">
+		<li><a href="issue_report.html">Issue Report</a></li>
+		<li class="divider"></li>
+		<li><a href="return_book.html">Issue Return Report</a></li>
+	</ul>
+
+	<ul id="dropdown4" class="dropdown-content">
+		<li><a href="printer_setting.html">Printer Setting</a></li>
+		<li class="divider"></li>
+		<li><a href="db_backup.html">Database Backup</a></li>
+	</ul>
+
+	<nav>
+		<div class="nav-wrapper">
+		<ul class="left ">
+			<!-- Dropdown Trigger -->
+			<li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Master</a></li>
+			<li><a class="dropdown-trigger" href="#!" data-target="dropdown2">Transaction</a></li>
+			<li><a class="dropdown-trigger" href="#!" data-target="dropdown3">Reports</a></li>
+			<li><a class="dropdown-trigger" href="#!" data-target="dropdown4">Settings</a></li>
+			<li><a href="{% url 'students:logout' %}">Log Out</a></li>
+
+		</ul>
+		</div>
+	</nav>
+	</div>
+	  {% block body %}{% endblock %}
+</body>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.dropdown-trigger');
+    var instances = M.Dropdown.init(elems, {'alignment':'left'});
+  });
+</script>
+{% block js_block %}	
+{% endblock %}
+  
+</html>

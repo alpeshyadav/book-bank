@@ -1,0 +1,48 @@
+{% extends 'students/basic.html' %}
+
+{% block body %}
+<form method="POST" action="/issue_book/" >
+  {% csrf_token %}
+  <div class="row">
+  <div class="input-field col s4">
+  <input type="text" name="receipt_id" autofocus id="receipt_id">
+  <label for="receipt_id">Receipt Id</label>
+  </div>
+  <div class="input-field col s4">
+  <input type="text" name="student_id" id="student_id">
+  <label for="student_id">Student Id</label>
+</div>
+<div  style="margin-top: 10px;" class="col s4">
+<input  class="waves-effect waves-light btn"  type="submit" value="Submit">
+</div>
+</div>
+</form>
+<div class="row">
+<div class="input-field">
+    <input type="text" name="first_name" disabled id="first_name">
+    <label for="first_name">{{s.first_name}}</label>
+</div>
+</div>
+<form action="" method="post">
+    <div class="verti-scroll">
+        <table class="centered" >
+            <thead>
+              <tr>
+                  <th>Book Id</th>
+                  <th>Book Name</th>
+                  <th>Semester</th>
+                  <th>Paper</th>
+                  <th>Book Edition</th>
+                  <th>Price</th>
+                  <th>Purchase Date</th>
+                  <th>Author Name</th>
+                  <th>Publisher Name</th>
+              </tr>
+            </thead>
+            
+            
+          </table>
+        </div>
+    
+</form>
+{% endblock body %}

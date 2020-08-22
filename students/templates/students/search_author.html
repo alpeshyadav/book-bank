@@ -1,0 +1,37 @@
+{% extends 'students/author_master.html' %}
+
+{% block search %}
+<form method="POST" action="/authormaster/search-author/" >
+  {% csrf_token %}
+  <div class="row">
+  <div class="input-field col s4">
+  <input type="text" name="author_name" required id="author_name">
+  <label for="author_name">Author Name</label>
+  </div>
+<div  style="margin-top: 10px;" class="col s4">
+<input  class="waves-effect waves-light btn"  type="submit" value="Submit">
+</div>
+</div>
+</form>
+{% endblock search %}
+
+{% block page %}
+
+<div class="verti-scroll">
+    <table class="centered" >
+        <thead>
+          <tr>
+              <th>Author Name</th>
+          </tr>
+        </thead>
+        
+        {% for a in author %}
+        <tbody class="centered">
+          <tr>
+            <td>{{a.author_name}}</td>
+          </tr>
+        </tbody>
+        {% endfor %}
+      </table>
+    </div>
+{% endblock %}

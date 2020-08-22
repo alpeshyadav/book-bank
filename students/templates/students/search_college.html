@@ -1,0 +1,37 @@
+{% extends 'students/author_master.html' %}
+
+{% block search %}
+<form method="POST" action="/collegemaster/search-college/" >
+  {% csrf_token %}
+  <div class="row">
+  <div class="input-field col s4">
+  <input type="text" name="college_name" required id="college_name">
+  <label for="college_name">College Name</label>
+  </div>
+<div  style="margin-top: 10px;" class="col s4">
+<input  class="waves-effect waves-light btn"  type="submit" value="Submit">
+</div>
+</div>
+</form>
+{% endblock search %}
+
+{% block page %}
+
+<div class="verti-scroll">
+    <table class="centered" >
+        <thead>
+          <tr>
+              <th>College Name</th>
+          </tr>
+        </thead>
+        
+        {% for c in college %}
+        <tbody class="centered">
+          <tr>
+            <td>{{c.college_name}}</td>
+          </tr>
+        </tbody>
+        {% endfor %}
+      </table>
+    </div>
+{% endblock %}

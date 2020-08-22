@@ -1,0 +1,37 @@
+{% extends 'students/stream_master.html' %}
+
+{% block search %}
+<form method="POST" action="/streammaster/search-stream/" >
+  {% csrf_token %}
+  <div class="row">
+  <div class="input-field col s4">
+  <input type="text" name="stream_name" required id="stream_name">
+  <label for="stream_name">Stream Name</label>
+  </div>
+<div  style="margin-top: 10px;" class="col s4">
+<input  class="waves-effect waves-light btn"  type="submit" value="Submit">
+</div>
+</div>
+</form>
+{% endblock search %}
+
+{% block page %}
+
+<div class="verti-scroll">
+    <table class="centered" >
+        <thead>
+          <tr>
+              <th>Stream Name</th>
+          </tr>
+        </thead>
+        
+        {% for s in stream %}
+        <tbody class="centered">
+          <tr>
+            <td>{{s.stream_name}}</td>
+          </tr>
+        </tbody>
+        {% endfor %}
+      </table>
+    </div>
+{% endblock %}

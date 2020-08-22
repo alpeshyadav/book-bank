@@ -1,0 +1,35 @@
+from django.urls import path
+from . import views
+
+app_name = 'students'
+urlpatterns = [ 
+   path('', views.index, name='home'),
+   path('home/', views.login_user, name='home'),
+   path('student/', views.student, name='student'),
+   path('bookmaster/', views.book_master, name='book_master'),
+   path('student/add-student/', views.add_student, name='add_student'),
+   path('bookmaster/add-book/', views.add_book, name='add_book'),
+   path('bookmaster/search-book/', views.search_book, name='search_book'),
+   path('student/search-student/', views.search_student, name='search_student'),
+   path('authormaster/', views.author_master, name='author_master'),
+   path('authormaster/add-author/', views.add_author, name='add_author'),
+   path('authormaster/search-author/', views.search_author, name='search_author'),
+   path('collegemaster/', views.college_master, name='college_master'),
+   path('collegemaster/add-college/', views.add_college, name='add_college'),
+   path('collegemaster/search-college/', views.search_college, name='search_college'),
+   path('branchmaster/', views.branch_master, name='branch_master'),
+   path('branchmaster/add-branch/', views.add_branch, name='add_branch'),
+   path('branchmaster/search-branch/', views.search_branch, name='search_branch'),
+   path('yearmaster/', views.year_master, name='year_master'),
+   path('yearmaster/add-year/', views.add_year, name='add_year'),
+   path('yearmaster/search-year/', views.search_year, name='search_year'),
+   path('publishermaster/', views.publisher_master, name='publisher_master'),
+   path('publishermaster/add-publisher/', views.add_publisher, name='add_publisher'),
+   path('publishermaster/search-publisher/', views.search_publisher, name='search_publisher'),
+   path('logout/', views.logout_user, name='logout'),
+   path('streammaster/', views.stream_master, name='stream_master'),
+   path('streammaster/add-stream/', views.add_stream, name='add_stream'),
+   path('streammaster/search-stream/', views.search_stream, name='search_stream'),
+   path('issue_book/', views.issue_book, name='issue_book'),
+   path('logout/', views.logout_user, name='logout'),
+]

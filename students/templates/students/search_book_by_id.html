@@ -1,0 +1,55 @@
+{% extends 'students/book_master.html' %}
+
+{% block search %}
+<form method="POST" action="/bookmaster/search-book/" >
+  {% csrf_token %}
+  <div class="row">
+  <div class="input-field col s4">
+  <input type="text" name="book_id" id="book_id">
+  <label for="book_id">Book Id</label>
+  </div>
+  <div class="input-field col s4">
+  <input type="text" name="barcode" id="barcode">
+  <label for="barcode">Barcode</label>
+</div>
+<div  style="margin-top: 10px;" class="col s4">
+<input  class="waves-effect waves-light btn"  type="submit" value="Submit">
+</div>
+</div>
+</form>
+{% endblock search %}
+
+{% block page %}
+
+<div class="verti-scroll">
+    <table class="centered" >
+        <thead>
+          <tr>
+              <th>Book Id</th>
+              <th>Book Name</th>
+              <th>Semester</th>
+              <th>Paper</th>
+              <th>Book Edition</th>
+              <th>Price</th>
+              <th>Purchase Date</th>
+              <th>Author Name</th>
+              <th>Publisher Name</th>
+          </tr>
+        </thead>
+        
+        <tbody class="centered">
+          <tr>
+            <td>{{books.book_name}}</td>
+            <td>{{books.barcode}}</td>
+            <td>{{books.sem}}</td>
+            <td>{{books.paper}}</td>
+            <td>{{books.book_edition}}</td>
+            <td>{{books.price}}</td>
+            <td>{{books.purchase_year}}</td>
+            <td>{{books.author_name}}</td>
+            <td>{{books.publisher}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+{% endblock %}

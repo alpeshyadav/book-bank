@@ -1,0 +1,113 @@
+{% extends 'students/book_master.html' %}
+
+{% block page %}
+    
+<span class="row">
+  <form method="POST" action="/bookmaster/add-book/" class="col s12">
+    {% csrf_token %}
+    <div class="row">
+        <div class="input-field col s6">
+            <div class="input-field col s8"> 
+                <input id="book_name" type="text" name="book_name" required>
+                <label for="book_name">Book Name</label>
+            </div>        
+            <div class="input-field col s2"> 
+                <input id="sem" type="text" name="sem" required>
+                <label for="sem">Sem</label>
+            </div>        
+            <div class="input-field col s2"> 
+                <input id="paper" type="text" name="paper">
+                <label for="paper">Paper</label>
+            </div>        
+        </div>
+      <div class="input-field col s6">
+        <input disabled id="barcode" type="text" name="barcode" required>
+        <label for="barcode">Barcode</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s6">
+      <div class="input-field col s10">
+        <input type="text" name="author_name" id="author_name" list="authorlist">
+        <datalist id="authorlist">
+          {% for a in author %}
+          <option value="{{a.author_name}}">
+          {% endfor %}
+        </datalist>
+        <label for="author_name">Author Name</label>
+      </div>
+      <div class="input-field col s2" style="padding-top: 10px; font-size:14px">
+        <a href="/authormaster/add-author/">Add Author</a>
+      </div>
+      </div>
+      <div class="input-field col s6">
+      <div class="input-field col s10">
+        <input type="text" name="publisher" id="publisher" list="publisherlist">
+        <datalist id="publisherlist" >
+          {% for p in publisher %}
+          <option value="{{p.publisher}}">
+          {% endfor %}
+        </datalist>
+        <label for="publisher" >Publisher</label>
+      </div>
+      <div class="input-field col s2" style="padding-top: 10px; font-size:14px">
+        <a href="">Add Publisher</a>
+      </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+      <div class="input-field col s4">
+        <input id="book_edition" name="book_edition" type="text" required>
+        <label for="book_edition">Book Edition</label>
+      </div>
+      <div class="input-field col s4">
+        <input id="price" name="price" type="text" required>
+        <label for="price">Price</label>
+      </div>
+      <div class="input-field col s4">
+        <input id="purchase_year" name="purchase_year" type="date" required>
+        <label for="purchase_year">Purchase Year</label>
+      </div>
+    </div>
+    </div>
+    <input class="waves-effect waves-light btn" id="submit" style="width: 100%;" type="submit" value="Submit">
+    </div>
+  </form>
+</span>
+<svg id="barcod" >ALPESH</svg>
+<script>
+  function textToBase64Barcode(text){
+    var canvas = document.createElement("canvas");
+    JsBarcode(canvas, text, {format: "CODE128B"});
+    return canvas.toDataURL("image/png");
+  }
+  window.addEventListener('DOMContentLoaded', () => {
+    const canvas = document.createElement("canvas")
+
+    JsBarcode(canvas, "B00019482", {
+        format: "code128b",
+        width:1,
+        height:20,
+        displayValue: true,
+        fontSize: 12
+      });
+      return canvas.toDataURL('image/png')
+  })
+
+  window.addEventListener('DOMContentLoaded', ()=> {
+    const purchase_year = document.querySelector('#purchase_year')
+    const today = new Date().toISOString().slice(0,10)
+    purchase_year.value = today
+  })
+
+  const temp = document.querySelector('#book_name')
+  temp.addEventListener('change', () => {
+   const b = document.querySelector('#submit')
+   
+   if(temp.innerText > 2)
+     b.click()
+  })
+</script>
+
+{% endblock page %}
